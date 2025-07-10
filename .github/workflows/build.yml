@@ -1,0 +1,30 @@
+name: Build Presentation
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+  packages: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Create output folder
+        run: mkdir out
+      # docker run --rm -v $PWD:/home/marp/app -e MARP_USER="root:root" marpteam/marp-cli
+      - name: Marp build
+        uses: docker://marpteam/marp-cli:latest
+        with:
+          args: --html --theme-set ./isss.css --pdf --pdf-outlines --pdf-outlines.pages=false --allow-local-files -o Presentation.pdf -- Presentation.md
+        env:
+          MARP_USER: root:root
+      - name: Publish files
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          title: "Presentation Slides"
+          files: |
+            Presentation.pdf

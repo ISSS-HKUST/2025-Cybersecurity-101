@@ -1,0 +1,412 @@
+/*
+ * @theme isss
+ * @author Ian Lau
+ * @description ISSS Theme - Modern turquoise theme with Creato Display font
+ */
+
+/* Import Marp core styles */
+@import "default";
+
+/* ===== ISSS Theme ===== */
+
+/* Override default section styling */
+section {
+  --color-background: #ffffff;
+  --color-foreground: #2c2c2c;
+  --color-highlight: #03b9b3;
+  --color-dimmed: #888888;
+}
+
+/* Font Imports */
+@font-face {
+  font-family: "Creato Display";
+  src: url("./static/font/CreatoDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Creato Display";
+  src: url("./static/font/CreatoDisplay-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Creato Display";
+  src: url("./static/font/CreatoDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Creato Display";
+  src: url("./static/font/CreatoDisplay-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Color Palette */
+:root {
+  --turquoise-primary: #03b9b3;
+  --turquoise-light: #40e0d0;
+  --turquoise-dark: #008b8b;
+  --turquoise-accent: #48d1cc;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --gray-medium: #888888;
+  --gray-dark: #2c2c2c;
+  --shadow: rgba(32, 178, 170, 0.15);
+}
+
+/* Base Styles */
+section {
+  background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
+  color: var(--gray-dark);
+  font-family: "Creato Display", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 28px;
+  line-height: 1.5;
+  padding: 60px 80px 100px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Logo positioning */
+section::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 64px;
+  height: 64px;
+  background: url("./static/logo.svg") no-repeat center center;
+  background-size: contain;
+  z-index: 10;
+}
+
+/* Copyright notice */
+section::after {
+  content: "© 2025 Information Systems Students' Society (HKUST)";
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 12px;
+  color: var(--gray-medium);
+  font-weight: 400;
+  z-index: 10;
+}
+
+/* Decorative background element */
+section {
+  background-image: linear-gradient(
+      135deg,
+      var(--white) 0%,
+      var(--gray-light) 100%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      var(--turquoise-accent) 0%,
+      transparent 30%
+    );
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Creato Display", sans-serif;
+  font-weight: 700;
+  color: var(--turquoise-dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2rem;
+  background: linear-gradient(
+    135deg,
+    var(--turquoise-primary),
+    var(--turquoise-dark)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-align: center; */
+  margin-bottom: 0.3rem;
+}
+
+h2 {
+  /* font-size: 1.5rem; */
+  color: var(--turquoise-primary);
+  /* border-bottom: 3px solid var(--turquoise-accent); */
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.8rem;
+}
+
+h3 {
+  /* font-size: 1.8rem; */
+  color: var(--turquoise-dark);
+  margin-bottom: 0.6rem;
+}
+
+h4,
+h5,
+h6 {
+  /* font-size: 1.4rem; */
+  color: var(--turquoise-primary);
+}
+
+/* Paragraph and text */
+p {
+  margin-bottom: 1rem;
+  font-weight: 400;
+  text-align: justify;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--turquoise-dark);
+}
+
+em {
+  font-style: italic;
+  color: var(--turquoise-primary);
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 1em 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+ul li::marker {
+  color: var(--turquoise-primary);
+  font-size: 1.2rem;
+}
+
+ol li::marker {
+  color: var(--turquoise-primary);
+  font-weight: 600;
+}
+
+/* Links */
+a {
+  color: var(--turquoise-primary);
+  text-decoration: underline;
+  /* border-bottom: 2px solid var(--turquoise-accent); */
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--turquoise-dark);
+  text-decoration: none;
+}
+
+/* Code blocks */
+code {
+  background: var(--gray-light);
+  border: 1px solid var(--turquoise-accent);
+  border-radius: 4px;
+  padding: 0.2em 0.4rem;
+  font-family: "Cascadia Code", "Courier New", monospace;
+  font-size: 0.9rem;
+  color: var(--turquoise-dark);
+}
+
+pre {
+  background: var(--gray-light);
+  border: 1px solid var(--turquoise-accent);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1em 0;
+  box-shadow: 0 4px 4px var(--shadow);
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+/* Keyboard keys */
+kbd {
+  background: var(--gray-light);
+  border: 1px solid var(--turquoise-accent);
+  border-radius: 4px;
+  padding: 0.2em 0.5em;
+  font-family: "Cascadia Code", "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--turquoise-dark);
+  box-shadow: 0 2px 2px var(--shadow);
+  display: inline-block;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  margin: 1em 0;
+  box-shadow: 0 4px 4px var(--shadow);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  width: 1fr;
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--turquoise-accent);
+}
+
+th {
+  background: var(--turquoise-primary);
+  color: var(--white);
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background: var(--gray-light);
+}
+
+tr:hover {
+  background: rgba(32, 178, 170, 0.1);
+}
+
+tr:nth-child(even):hover {
+  background: rgba(32, 178, 170, 0.1);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--turquoise-primary);
+  padding-left: 1rem;
+  margin: 1em 0;
+  font-style: italic;
+  color: var(--turquoise-dark);
+  background: var(--gray-light);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* Images */
+/* img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px var(--shadow);
+  margin: 1em 0;
+} */
+
+/* Slide number */
+section[data-marpit-pagination]::after {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 12px;
+  color: var(--gray-medium);
+  font-weight: 400;
+  z-index: 10;
+}
+
+/* Page number styling */
+.slide-number {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--turquoise-primary);
+  color: var(--white);
+  padding: 0.3em 0.8rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  z-index: 10;
+}
+
+/* Invert class for dark theme */
+section.invert {
+  background: linear-gradient(135deg, var(--gray-dark) 0%, #1a1a1a 100%);
+  color: var(--white);
+}
+
+section.invert h1,
+section.invert h2,
+section.invert h3,
+section.invert h4,
+section.invert h5,
+section.invert h6 {
+  color: var(--turquoise-light);
+}
+
+section.invert code {
+  background: #3a3a3a;
+  border-color: var(--turquoise-primary);
+  color: var(--turquoise-light);
+}
+
+section.invert pre {
+  background: #2a2a2a;
+  border-color: var(--turquoise-primary);
+}
+
+section.invert table th {
+  background: var(--turquoise-dark);
+}
+
+section.invert blockquote {
+  background: #3a3a3a;
+  border-left-color: var(--turquoise-light);
+  color: var(--turquoise-light);
+}
+
+/* Animation for transitions */
+section {
+  transition: all 0.3s ease;
+}
+
+/* Highlight boxes */
+.highlight {
+  background: var(--turquoise-accent);
+  color: var(--white);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1em 0;
+  border-left: 4px solid var(--turquoise-primary);
+}
+
+.info {
+  background: var(--gray-light);
+  border-left: 4px solid var(--turquoise-primary);
+  padding: 1rem;
+  margin: 1em 0;
+  border-radius: 4px;
+}
+
+.warning {
+  background: rgba(255, 193, 7, 0.1);
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  margin: 1em 0;
+  border-radius: 4px;
+}
+
+.error {
+  background: rgba(220, 53, 69, 0.1);
+  border-left: 4px solid #dc3545;
+  padding: 1rem;
+  margin: 1em 0;
+  border-radius: 4px;
+}
