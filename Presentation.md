@@ -5,7 +5,7 @@ paginate: true
 ---
 
 <script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.0.0/dist/mermaid.esm.min.mjs';
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.8.1/dist/mermaid.esm.min.mjs';
 
 mermaid.initialize({ startOnLoad: false, theme: 'base', themeVariables:{primaryColor: "#40e0d0", secondaryColor: "#f5f5f5"} });
 const render = async function () {
@@ -15,7 +15,7 @@ const render = async function () {
     const { svg } = await mermaid.render('mmd', el.textContent);
 
     const img = document.createElement('img');
-    img.setAttribute('src', `data:image/svg+xml;base64,${btoa(svg)}`);
+    img.setAttribute('src', `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`);
     img.setAttribute('class', el.getAttribute('class'));
     img.setAttribute('style', el.getAttribute('style') || '');
 
